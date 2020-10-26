@@ -12,18 +12,8 @@ import java.net.URI;
 //TODO Ha add song utan kivalasztjuk a zenet akkor az abalk zarodjon be es az elozo fo ablak is
 
 public class Library{
-
-    JFrame firstFrame = new JFrame();
-    JPanel firstPanel = new JPanel();
-
-    JFrame addFrame = new JFrame();
-    JPanel addPanel = new JPanel();
-
     boolean isSleepShowing = false;
     boolean isFatboiShowing = false;
-
-    boolean addedNewSong = false;
-
     public static void main(String[] args) {
         Library library = new Library();
         makeGUI gui = library.new makeGUI();
@@ -74,10 +64,12 @@ public class Library{
         public void actionPerformed(ActionEvent e) {
             
             makeGUI gui = new makeGUI();
+            AddButton add = new AddButton();
                
             if(isFatboiShowing == false){
                 isFatboiShowing = true;
-                addedNewSong = true;
+                add.addFrame.setVisible(false);  //Problem here
+                gui.firstFrame.setVisible(false);//Problem here
                 gui.addGui();
             }else if(isFatboiShowing == true){
                 gui.addGui();
@@ -89,15 +81,16 @@ public class Library{
     class Sleepnew implements ActionListener{
     
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e){
     
             makeGUI gui = new makeGUI();
+            AddButton add = new AddButton();
             
             if(isSleepShowing == false){
                 isSleepShowing = true;
-                addedNewSong = true;
-                addFrame.setVisible(false);
-                firstFrame.setVisible(false);
+                isSleepShowing = true;
+                add.addFrame.setVisible(false);   //Problem here
+                gui.firstFrame.setVisible(false); //Problem here
                 gui.addGui();
             }else if(isSleepShowing == true){
                 gui.addGui();
@@ -143,6 +136,9 @@ public class Library{
     }
     
     class AddButton implements ActionListener{
+
+        JFrame addFrame = new JFrame();
+        JPanel addPanel = new JPanel();
         
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -164,6 +160,9 @@ public class Library{
     }
     
     class makeGUI{
+
+        JFrame firstFrame = new JFrame();
+        JPanel firstPanel = new JPanel();
         
         public void addGui(){
             JButton franchise = new JButton("Franchise");
@@ -200,6 +199,7 @@ public class Library{
     
             firstFrame.add(firstPanel);
             firstFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
             firstFrame.setVisible(true);
             firstFrame.pack();
         }
