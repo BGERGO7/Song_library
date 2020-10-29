@@ -5,8 +5,8 @@ public class Main {
     */
     
     public static void main(String[] args) {
-        mainFrame mainFrame = new mainFrame();
-
-        mainFrame.createMainFrame(false,false);
+        Frames frames = new Frames();
+        
+        frames.displayMainFrame();
     }
 }
