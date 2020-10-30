@@ -132,15 +132,28 @@ public class Frames{
 
 	class addHajnaliNegy implements ActionListener {
 
+			mainFrame mainFrame = new mainFrame();
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			mainFrame mainFrame = new mainFrame();
 
 			if (isHajnaliNegyShowing == false && isFalaFelShowing == false) {
 				isHajnaliNegyShowing = true;
+				System.out.println(isHajnaliNegyShowing);	
+				System.out.println(isFalaFelShowing);
 				mainFrame.createMainFrame(true,false);
 			}else if(isHajnaliNegyShowing == true && isFalaFelShowing == true){
+				System.out.println(isHajnaliNegyShowing);	
+				System.out.println(isFalaFelShowing);
 				mainFrame.createMainFrame(true,true);
+			}else if(isHajnaliNegyShowing == true && isFalaFelShowing == false){
+				System.out.println(isHajnaliNegyShowing);	
+				System.out.println(isFalaFelShowing);
+				mainFrame.createMainFrame(true,false);
+			}else if(isHajnaliNegyShowing == false && isFalaFelShowing == true){	
+				isHajnaliNegyShowing = true;
+				System.out.println(isHajnaliNegyShowing);	
+				System.out.println(isFalaFelShowing);
+				mainFrame.createMainFrame(false,true);
 			}
 	
 		}
@@ -150,16 +163,29 @@ public class Frames{
 	
 	class addFalaFel implements ActionListener{
 	
+			mainFrame mainFrame = new mainFrame();
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
-			mainFrame mainFrame = new mainFrame();
 			
 			if (isHajnaliNegyShowing == false && isFalaFelShowing == false) {
 				isFalaFelShowing = true;
+				System.out.println(isHajnaliNegyShowing);	
+				System.out.println(isFalaFelShowing);
 				mainFrame.createMainFrame(false,true);
 			}else if(isHajnaliNegyShowing == true && isFalaFelShowing == true){
+				System.out.println(isHajnaliNegyShowing);	
+				System.out.println(isFalaFelShowing);
 				mainFrame.createMainFrame(true, true);
+			}else if(isHajnaliNegyShowing == false && isFalaFelShowing == true){
+				System.out.println(isHajnaliNegyShowing);	
+				System.out.println(isFalaFelShowing);
+				mainFrame.createMainFrame(false,true);
+			}else if(isHajnaliNegyShowing == true && isFalaFelShowing == false){	
+				isFalaFelShowing = true;
+				System.out.println(isHajnaliNegyShowing);	
+				System.out.println(isFalaFelShowing);
+				mainFrame.createMainFrame(true,false);
 			}
 		}
 		
