@@ -6,9 +6,6 @@ import java.net.URI;
 
 public class Frames{
 
-	//Ha masodjara akarok hozzaadni egy zenet akkor nem engedelyezi. 
-	//TODO: Megnezni az if-else sorokat az addSong-nal mert valoszinuleg ott van a hiba
-
 	public boolean isHajnaliNegyShowing = false;
 	public boolean isFalaFelShowing = false;
 
