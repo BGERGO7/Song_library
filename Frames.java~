@@ -6,10 +6,21 @@ import java.net.URI;
 
 public class Frames{
  
-	//TODO:Ablakok bezarasa
+	//TODO:Ablakok bezarasa, ha masodjara akarok betenni egy szamot akkor nem tortenik semmi,de harmadjara mar jo es utana is(MEGCSINALNI!!!!!)
 
 	public boolean isHajnaliNegyShowing = false;
 	public boolean isFalaFelShowing = false;
+
+	JFrame mainFrame = new JFrame();
+	JFrame addFrame = new JFrame();
+
+	JButton franchise = new JButton("Franchise");
+	JButton hajnaliNegy = new JButton("Hajnali 4");
+	JButton falaFel = new JButton("Fala fel");
+	JButton addButton = new JButton("Add Song");
+
+	JButton hajnaliNegyAdd = new JButton("Hajnali Negy");
+	JButton falaFelAdd = new JButton("Fala Fel");
 
 	public static void main(String[] args) {
 		Frames frames = new Frames();
@@ -24,19 +35,15 @@ public class Frames{
 	}
 
 	class mainFrame {
-		JFrame mainFrame = new JFrame();
 
 		public void createMainFrame(boolean HajnaliNegy, boolean FalaFel) {
-			JButton franchise = new JButton("Franchise");
-			JButton hajnaliNegy = new JButton("Hajnali 4");
-			JButton falaFel = new JButton("Fala fel");
-			JButton addButton = new JButton("Add Song");
-
 			franchise.addActionListener(new Franchise());
 			hajnaliNegy.addActionListener(new hajnaliNegy());
 			falaFel.addActionListener(new falaFel());
 			addButton.addActionListener(new AddFrame());
 
+			mainFrame.setSize(300,300);
+		
 			mainFrame.add(franchise);
 			if (HajnaliNegy == true) {
 				mainFrame.add(hajnaliNegy);
@@ -108,18 +115,16 @@ public class Frames{
 	}
 
 	class AddFrame implements ActionListener {
-		JFrame addFrame = new JFrame();
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JButton hajnaliNegy = new JButton("Hajnali Negy");
-			JButton falaFel = new JButton("Fala Fel");
+			hajnaliNegyAdd.addActionListener(new addHajnaliNegy());
+			falaFelAdd.addActionListener(new addFalaFel());
 
-			hajnaliNegy.addActionListener(new addHajnaliNegy());
-			falaFel.addActionListener(new addFalaFel());
+			addFrame.add(hajnaliNegyAdd);
+			addFrame.add(falaFelAdd);
 
-			addFrame.add(hajnaliNegy);
-			addFrame.add(falaFel);
+			addFrame.setSize(300,300);
 
 			addFrame.setLayout(new GridLayout(0, 1));
 			addFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -130,37 +135,23 @@ public class Frames{
 	}
 
 	class addHajnaliNegy implements ActionListener {
-
 			mainFrame mainFrame = new mainFrame();
-			AddFrame addFrame = new AddFrame();
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
 			if (isHajnaliNegyShowing == false && isFalaFelShowing == false) {
 				isHajnaliNegyShowing = true;
-				System.out.println(isHajnaliNegyShowing);	
-				System.out.println(isFalaFelShowing);
-				//mainFrame.mainFrame.setVisible(false);
-				//addFrame.addFrame.setVisible(false);
+				addFrame.setVisible(false);
 				mainFrame.createMainFrame(true,false);
 			}else if(isHajnaliNegyShowing == true && isFalaFelShowing == true){
-				System.out.println(isHajnaliNegyShowing);	
-				System.out.println(isFalaFelShowing);
-				//mainFrame.mainFrame.setVisible(false);
-				//addFrame.addFrame.setVisible(false);
+				addFrame.setVisible(false);
 				mainFrame.createMainFrame(true,true);
 			}else if(isHajnaliNegyShowing == true && isFalaFelShowing == false){
-				System.out.println(isHajnaliNegyShowing);	
-				System.out.println(isFalaFelShowing);
-				//mainFrame.mainFrame.setVisible(false);
-				//addFrame.addFrame.setVisible(false);
+				addFrame.setVisible(false);
 				mainFrame.createMainFrame(true,false);
 			}else if(isHajnaliNegyShowing == false && isFalaFelShowing == true){	
 				isHajnaliNegyShowing = true;
-				System.out.println(isHajnaliNegyShowing);	
-				System.out.println(isFalaFelShowing);
-				//mainFrame.mainFrame.setVisible(false);
-				//addFrame.addFrame.setVisible(false);
+				addFrame.setVisible(false);
 				mainFrame.createMainFrame(false,true);
 			}
 	
@@ -170,42 +161,27 @@ public class Frames{
 	
 	
 	class addFalaFel implements ActionListener{
-	
 			mainFrame mainFrame = new mainFrame();
-			AddFrame addFrame = new AddFrame();
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
 			
 			if (isHajnaliNegyShowing == false && isFalaFelShowing == false) {
 				isFalaFelShowing = true;
-				System.out.println(isHajnaliNegyShowing);	
-				System.out.println(isFalaFelShowing);
-				//mainFrame.mainFrame.setVisible(false);
-				//addFrame.addFrame.setVisible(false);
+				addFrame.setVisible(false);
 				mainFrame.createMainFrame(false,true);
 			}else if(isHajnaliNegyShowing == true && isFalaFelShowing == true){
-				System.out.println(isHajnaliNegyShowing);	
-				System.out.println(isFalaFelShowing);
-				//mainFrame.mainFrame.setVisible(false);
-				//addFrame.addFrame.setVisible(false);
+				addFrame.setVisible(false);
 				mainFrame.createMainFrame(true, true);
 			}else if(isHajnaliNegyShowing == false && isFalaFelShowing == true){
-				System.out.println(isHajnaliNegyShowing);	
-				System.out.println(isFalaFelShowing);
-				//mainFrame.mainFrame.setVisible(false);
-				//addFrame.addFrame.setVisible(false);
+				addFrame.setVisible(false);
 				mainFrame.createMainFrame(false,true);
 			}else if(isHajnaliNegyShowing == true && isFalaFelShowing == false){	
 				isFalaFelShowing = true;
-				System.out.println(isHajnaliNegyShowing);	
-				System.out.println(isFalaFelShowing);
-				//mainFrame.mainFrame.setVisible(false);
-				//addFrame.addFrame.setVisible(false);
+				addFrame.setVisible(false);
 				mainFrame.createMainFrame(true,false);
 			}
 		}
 		
 	}
 }
-
