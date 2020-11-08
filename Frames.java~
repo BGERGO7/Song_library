@@ -15,7 +15,7 @@ public class Frames{
 	JFrame addFrame = new JFrame();
 
 	JButton franchise = new JButton("Franchise");
-	JButton hajnaliNegy = new JButton("Hajnali 4");
+	JButton hajnaliNegy = new JButton("Hajnali Negy");
 	JButton falaFel = new JButton("Fala fel");
 	JButton addButton = new JButton("Add Song");
 
@@ -42,7 +42,8 @@ public class Frames{
 			falaFel.addActionListener(new falaFel());
 			addButton.addActionListener(new AddFrame());
 
-			mainFrame.setSize(300,300);
+			mainFrame.setSize(200,200);
+			mainFrame.setName("Song Library");
 		
 			mainFrame.add(franchise);
 			if (HajnaliNegy == true) {
@@ -55,8 +56,8 @@ public class Frames{
 
 			mainFrame.setLayout(new GridLayout(0, 1));
 			mainFrame.setVisible(true);
-			mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			mainFrame.pack();
+			mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			//mainFrame.pack();
 
 		}
 	}
@@ -124,12 +125,13 @@ public class Frames{
 			addFrame.add(hajnaliNegyAdd);
 			addFrame.add(falaFelAdd);
 
-			addFrame.setSize(300,300);
+			addFrame.setSize(200,200);
+			addFrame.setName("Add Song");
 
 			addFrame.setLayout(new GridLayout(0, 1));
 			addFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			addFrame.setVisible(true);
-			addFrame.pack();
+			//addFrame.pack();
 		}
 
 	}
