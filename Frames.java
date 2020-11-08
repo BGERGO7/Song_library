@@ -6,8 +6,6 @@ import java.net.URI;
 
 public class Frames{
  
-	//TODO:Ablakok bezarasa, ha masodjara akarok betenni egy szamot akkor nem tortenik semmi,de harmadjara mar jo es utana is(MEGCSINALNI!!!!!)
-
 	public boolean isHajnaliNegyShowing = false;
 	public boolean isFalaFelShowing = false;
 
